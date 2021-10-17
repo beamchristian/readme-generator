@@ -68,19 +68,38 @@ const promptQuestions = () => {
         }
       },
     },
+    // Credits
+    {
+      type: 'confirm',
+      name: 'confirmCredit',
+      message: 'Would you like to add a credit section to your readme?',
+    },
+    {
+      type: 'input',
+      name: 'credit',
+      message:
+        'List your credits (collaborators, third party assets used, tutorials, ect)',
+      when: ({ confirmCredit }) => {
+        if (confirmCredit) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+    },
     // (licensing)
     {
       type: 'list',
       name: 'licensing',
       message: 'What license would you like to use for your project?',
       choices: [
-        'Apache 2.0',
-        'GNU General Public License(GPL)',
-        'BSD 2-Clause',
+        'Apache(2.0)',
+        'GNU(GPL)',
+        'BSD(2Clause)',
+        'BSD(3Clause)',
         'MIT',
-        'Mozilla Public 2.0',
-        'Common Development and Distribution',
-        'Eclipse Public version 2.0',
+        'Mozilla(Public)(2.0)',
+        'Eclipse(2.0)',
       ],
     },
     // contribution
@@ -109,6 +128,12 @@ const promptQuestions = () => {
           return false;
         }
       },
+    },
+    // table of contents confirm
+    {
+      type: 'confirm',
+      name: 'confirmTable',
+      message: 'Would you like to add a table of contents?',
     },
     // github username
     {
