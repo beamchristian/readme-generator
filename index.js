@@ -38,15 +38,27 @@ const promptQuestions = () => {
     // installation instructions
     {
       type: 'confirm',
-      name: 'installation',
+      name: 'confirmInstructions',
       message: 'Would you like to provide installation instructions?',
       default: false,
+    },
+    {
+      type: 'input',
+      name: 'Instructions',
+      message: 'Provide installation instructions:',
+      when: ({ confirmInstructions }) => {
+        if (confirmInstructions) {
+          return true;
+        } else {
+          return false;
+        }
+      },
     },
     // usage information
     {
       type: 'input',
       name: 'usage',
-      message: 'Provide Usage information',
+      message: 'Provide Usage information:',
       validate: usageInput => {
         if (usageInput) {
           return true;
@@ -74,17 +86,29 @@ const promptQuestions = () => {
     // contribution
     {
       type: 'confirm',
-      name: 'contribution',
+      name: 'confirmContribution',
       message:
-        'Would you like other developers to be able to contribute to your project?',
+        'Would you like to add a code of conduct about contributing to your project?',
       default: false,
     },
     // tests
     {
       type: 'confirm',
-      name: 'test',
+      name: 'confirmTest',
       message: "Would you like to provide test case's in you readme?",
       default: false,
+    },
+    {
+      type: 'input',
+      name: 'test',
+      message: "Provide your test case's:",
+      when: ({ confirmTest }) => {
+        if (confirmTest) {
+          return true;
+        } else {
+          return false;
+        }
+      },
     },
     // github username
     {
@@ -117,10 +141,8 @@ const promptQuestions = () => {
   ]);
 };
 
+// intialize prompt function
 promptQuestions().then(answers => console.log(answers));
-// TODO: Create a function to initialize app
-
-// Function call to initialize app
 
 // fs.writeFile('README.md', init(name, description), err => {
 //   if (err) throw err;
