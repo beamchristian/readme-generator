@@ -1,4 +1,0 @@
-
-  # RunBuddy
-  ## Awesome
-  

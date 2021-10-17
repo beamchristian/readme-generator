@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const init = require('./src/page-template.js');
 
 const dataArgs = process.argv.slice(2, process.argv.length);
 const [name, description] = dataArgs;
@@ -53,17 +54,13 @@ const [name, description] = dataArgs;
 // };
 
 // TODO: Create a function to initialize app
-const init = (projectName, projectDescription) => {
-  return `
-  # ${projectName}
-  ## ${projectDescription}
-  `;
-};
+
+// Function call to initialize app
+
 fs.writeFile('README.md', init(name, description), err => {
-  if (err) throw err;
+  if (err) throw new Error(err);
 
   console.log('Readme Generated Successfully!');
 });
 
-// Function call to initialize app
 init();
