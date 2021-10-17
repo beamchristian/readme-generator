@@ -1,8 +1,8 @@
-const init = (projectName, projectDescription) => {
+const generateMarkdown = (projectName, projectDescription) => {
   return `
   # ${projectName}
   ## ${projectDescription}
   `;
 };
 
-module.exports = init;
+module.exports = generateMarkdown;
