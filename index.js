@@ -170,7 +170,7 @@ const promptQuestions = () => {
 promptQuestions().then(answers => {
   console.log(answers);
   const createMarkdown = pageMarkdown(answers);
-  fs.writeFile('README.md', createMarkdown, err => {
+  fs.writeFile('./dist/README.md', createMarkdown, err => {
     if (err) throw new Error(err);
     console.log('Readme Generated Successfully!');
   });
