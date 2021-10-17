@@ -12,12 +12,28 @@ const promptQuestions = () => {
       type: 'input',
       name: 'name',
       message: "What is your project's name?",
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter a project name!');
+          return false;
+        }
+      },
     },
     // project description
     {
       type: 'input',
       name: 'description',
       message: 'Provide a desription of your project.',
+      validate: descInput => {
+        if (descInput) {
+          return true;
+        } else {
+          console.log('Please enter a description of your project!');
+          return false;
+        }
+      },
     },
     // installation instructions
     {
@@ -31,6 +47,14 @@ const promptQuestions = () => {
       type: 'input',
       name: 'usage',
       message: 'Provide Usage information',
+      validate: usageInput => {
+        if (usageInput) {
+          return true;
+        } else {
+          console.log('Please provide usage information!');
+          return false;
+        }
+      },
     },
     // (licensing)
     {
@@ -67,12 +91,28 @@ const promptQuestions = () => {
       type: 'input',
       name: 'github',
       message: 'What is your GitHub username?',
+      validate: githubInput => {
+        if (githubInput) {
+          return true;
+        } else {
+          console.log('Please enter your GitHub username!');
+          return false;
+        }
+      },
     },
     // email address
     {
       type: 'input',
       name: 'email',
       message: 'What is your email?',
+      validate: emailInput => {
+        if (emailInput) {
+          return true;
+        } else {
+          console.log('Please enter your email address!');
+          return false;
+        }
+      },
     },
   ]);
 };
