@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-// const fs = require('fs');
-// const pageMarkdown = require('./src/page-template.js');
+const fs = require('fs');
+const pageMarkdown = require('./src/page-template.js');
 // const generateMarkdown = require('./src/page-template.js');
 
 // function to display prompt's to user
@@ -44,7 +44,7 @@ const promptQuestions = () => {
     },
     {
       type: 'input',
-      name: 'Instructions',
+      name: 'instructions',
       message: 'Provide installation instructions:',
       when: ({ confirmInstructions }) => {
         if (confirmInstructions) {
@@ -142,12 +142,11 @@ const promptQuestions = () => {
 };
 
 // intialize prompt function
-promptQuestions().then(answers => console.log(answers));
-
-// fs.writeFile('README.md', init(name, description), err => {
-//   if (err) throw err;
-
-//   console.log('Readme Generated Successfully!');
-// });
-
-// generateMarkdown();
+promptQuestions().then(answers => {
+  console.log(answers);
+  const createMarkdown = pageMarkdown(answers);
+  fs.writeFile('README.md', createMarkdown, err => {
+    if (err) throw new Error(err);
+    console.log('Readme Generated Successfully!');
+  });
+});

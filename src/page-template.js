@@ -1,8 +1,16 @@
-const generateMarkdown = (projectName, projectDescription) => {
-  return `
-  # ${projectName}
-  ## ${projectDescription}
-  `;
+const generateInstallInst = instructionsText => {
+  if (!instructionsText) {
+    return '';
+  }
 };
 
-module.exports = generateMarkdown;
+module.exports = templateData => {
+  console.log(templateData);
+  const markdown = templateData;
+  return `
+  #${markdown.name}
+
+  ##${markdown.description}
+
+  `;
+};
