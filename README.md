@@ -40,6 +40,12 @@ git clone https://github.com/beamchristian/readme-generator.git
 After you install node.js on your machine navigate to the directory you cloned the repository under. Then open in Visual Studio Code or whatever IDE you would you like and open up the command line.
 ![Visual Studio Example](https://user-images.githubusercontent.com/88356270/137647410-3db7029d-505e-4d9d-8dc2-f3193dd41cb7.png)
 
+Then type in the command line:
+```md
+npm install inquirer
+```
+(This will install the inquirer package needed)
+
 Then type: "node index" and press enter to run the program
 
 ```md
